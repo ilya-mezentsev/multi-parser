@@ -1,11 +1,14 @@
-from typing import Optional, Mapping, Any, Union
+from typing import (
+    Optional,
+    Mapping,
+    Any,
+)
 
 import aiohttp
 
 from multi_parser.channels.shared import (
     IHttpRequester,
     HttpResponse,
-    HttpError,
 )
 
 
@@ -19,7 +22,7 @@ class HttpRequester(IHttpRequester):
             self,
             url: str,
             headers: Optional[Mapping[str, Any]] = None
-    ) -> Union[HttpResponse, HttpError]:
+    ) -> HttpResponse:
 
         async with aiohttp.ClientSession() as session:
             async with session.get(
@@ -28,5 +31,6 @@ class HttpRequester(IHttpRequester):
             ) as response:
 
                 return HttpResponse(
-                    body=(await response.text())
+                    body=(await response.text()),
+                    is_ok=response.ok,
                 )

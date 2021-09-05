@@ -1,7 +1,6 @@
 from abc import abstractmethod
 from dataclasses import dataclass
 from typing import (
-    Union,
     Optional,
     Mapping,
     Any,
@@ -11,7 +10,6 @@ from typing import (
 __all__ = [
     'IHttpRequester',
     'HttpResponse',
-    'HttpError',
 ]
 
 
@@ -21,16 +19,12 @@ class IHttpRequester:
             self,
             url: str,
             headers: Optional[Mapping[str, Any]] = None,
-    ) -> Union['HttpResponse', 'HttpError']:
+    ) -> 'HttpResponse':
 
         raise NotImplementedError()
 
 
 @dataclass
 class HttpResponse:
+    is_ok: bool
     body: str
-
-
-@dataclass
-class HttpError:
-    description: str

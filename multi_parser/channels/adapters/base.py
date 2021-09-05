@@ -9,8 +9,6 @@ from typing import (
 
 from multi_parser.channels.shared import (
     IHttpRequester,
-    HttpResponse,
-    HttpError,
     ChannelToToken,
 )
 from multi_parser.shared import (
@@ -51,15 +49,15 @@ class BaseChannelAdapter(IChannelAdapter):
             url=self.url(request.user_id), headers=self.headers()
         )
 
-        if isinstance(response, HttpResponse):
-            return ParsingResponse(channel_user_data=json.loads(response.body),)
-
-        elif isinstance(response, HttpError):
-            return ParsingError(description=response.description,)
+        if response.is_ok:
+            return ParsingResponse(
+                channel_user_data=json.loads(response.body),
+            )
 
         else:
-            raise RuntimeError(
-                f'Unknown http response type: {type(response)}!r')
+            return ParsingError(
+                description=response.body,
+            )
 
     @abstractmethod
     def url(self, user_id: str) -> str:
