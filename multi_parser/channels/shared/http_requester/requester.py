@@ -28,6 +28,7 @@ class HttpRequester(IHttpRequester):
             async with session.get(
                 url=url,
                 headers=headers,
+                timeout=10,  # todo take from settings
             ) as response:
 
                 return HttpResponse(

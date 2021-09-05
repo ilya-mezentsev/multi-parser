@@ -48,7 +48,8 @@ class Controller:
                 status=web.HTTPOk.status_code,
                 body=json.dumps({
                     'channel_user_data': response.channel_user_data,
-                })
+                }),
+                content_type='application/json',
             )
 
         elif isinstance(response, ParsingError):
@@ -56,7 +57,8 @@ class Controller:
                 status=web.HTTPBadRequest.status_code,
                 body=json.dumps({
                     'description': response.description,
-                })
+                }),
+                content_type='application/json',
             )
 
         else:

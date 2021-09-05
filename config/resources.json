@@ -1,0 +1,84 @@
+{
+  "github": {
+    "login": {
+      "en": "Login"
+    },
+    "id": {
+      "en": "User ID"
+    },
+    "avatar_url": {
+      "en": "Avatar URL"
+    },
+    "html_url": {
+      "en": "Repository URL"
+    },
+    "name": {
+      "en": "Name"
+    },
+    "company": {
+      "en": "Company"
+    },
+    "blog": {
+      "en": "Blog"
+    },
+    "location": {
+      "en": "Location"
+    },
+    "email": {
+      "en": "Email"
+    },
+    "hireable": {
+      "en": "Hireable"
+    },
+    "bio": {
+      "en": "Bio"
+    },
+    "twitter_username": {
+      "en": "Twitter username"
+    },
+    "public_repos": {
+      "en": "Public repositories count"
+    },
+    "followers": {
+      "en": "Followers count"
+    },
+    "following": {
+      "en": "Following count"
+    },
+    "created_at": {
+      "en": "Account created"
+    }
+  },
+  "vk": {
+    "id": {
+      "en": "User ID"
+    },
+    "last_name": {
+      "en": "Last name"
+    },
+    "photo_max_orig": {
+      "en": "User avatar URL"
+    },
+    "is_closed": {
+      "en": "Is profile closed"
+    },
+    "can_access_closed": {
+      "en": "Can access closed"
+    },
+    "screen_name": {
+      "en": "Screen name"
+    },
+    "sex": {
+      "en": "Sex (1 - female, 2 - male, 0 - not specified)"
+    },
+    "first_name": {
+      "en": "First name"
+    },
+    "online": {
+      "en": "Is online"
+    },
+    "bdate": {
+      "en": "Birth date"
+    }
+  }
+}
