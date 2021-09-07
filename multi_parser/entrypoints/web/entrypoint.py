@@ -1,7 +1,7 @@
 from aiohttp import web
 
-from .controller import Controller
 from multi_parser.channels import ChannelHelper
+from multi_parser.entrypoints.web.controller import Controller
 
 
 __all__ = [

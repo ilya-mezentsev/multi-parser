@@ -1,11 +1,11 @@
 from typing import Mapping, Union
 
-from .adapters import (
+from multi_parser.channels.shared import IHttpRequester, ChannelToToken
+from multi_parser.channels.adapters import (
     IChannelAdapter,
     GithubChannelAdapter,
     VkChannelAdapter,
 )
-from .shared import IHttpRequester, ChannelToToken
 from multi_parser.shared import (
     ParsingRequest,
     ParsingResponse,

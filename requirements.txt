@@ -1,3 +1,4 @@
 mypy==0.910
 autopep8==1.5.7
 aiohttp==3.7.3
+argparse==1.4
