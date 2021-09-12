@@ -3,7 +3,7 @@ from typing import Union
 
 from aiohttp import web
 
-from multi_parser.channels import ChannelHelper
+from multi_parser.channels import IChannelAdapter
 from multi_parser.shared import (
     ParsingRequest,
     ParsingResponse,
@@ -20,7 +20,7 @@ class Controller:
 
     def __init__(
             self,
-            channel_helper: ChannelHelper,
+            channel_helper: IChannelAdapter,
     ) -> None:
 
         self._channel_helper = channel_helper

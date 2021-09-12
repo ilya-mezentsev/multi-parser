@@ -11,12 +11,19 @@ __all__ = [
 
 @dataclass
 class CLISettings:
+    mode: str
     resources_path: str
     logging_level: str
 
 
 def cli_arguments() -> CLISettings:
     parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        '--mode',
+        type=str,
+        help='App mode (web/telegram)',
+    )
 
     parser.add_argument(
         '--resources-path',
@@ -33,6 +40,7 @@ def cli_arguments() -> CLISettings:
     args = parser.parse_args()
 
     return CLISettings(
+        mode=args.mode,
         resources_path=args.resources_path,
         logging_level=args.logging_level,
     )

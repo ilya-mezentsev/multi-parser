@@ -1,4 +1,4 @@
-from typing import Mapping
+from typing import Mapping, Optional
 
 
 __all__ = [
@@ -6,4 +6,4 @@ __all__ = [
 ]
 
 
-ChannelToToken = Mapping[str, str]
+ChannelToToken = Mapping[str, Optional[str]]

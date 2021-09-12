@@ -1,7 +1,7 @@
 from aiohttp import web
 
-from multi_parser.channels import ChannelHelper
-from multi_parser.entrypoints.web.controller import Controller
+from multi_parser.channels import IChannelAdapter
+from .controller import Controller
 
 
 __all__ = [
@@ -10,7 +10,7 @@ __all__ = [
 
 
 def run(
-        channel_helper: ChannelHelper,
+        channel_helper: IChannelAdapter,
 ) -> None:
 
     app = web.Application()

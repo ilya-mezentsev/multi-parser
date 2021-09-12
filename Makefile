@@ -26,8 +26,13 @@ ifneq (,$(wildcard ./.env))
 	ENV_FILE_PARAM = --env-file .env
 endif
 
-run:
-	$(VENV_PYTHON) $(ENTRYPOINT_FILE) --resources-path $(RESOURCES_FILE) --logging-level info
+run: run-web
+
+run-web:
+	$(VENV_PYTHON) $(ENTRYPOINT_FILE) --mode web --resources-path $(RESOURCES_FILE) --logging-level info
+
+run-telegram:
+	$(VENV_PYTHON) $(ENTRYPOINT_FILE) --mode telegram --resources-path $(RESOURCES_FILE) --logging-level info
 
 install: venv-dir
 	$(VENV_PIP) install -r $(REQUIREMENTS_FILE)

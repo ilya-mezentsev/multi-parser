@@ -6,6 +6,11 @@ from multi_parser.shared import (
 )
 
 
+__all__ = [
+    'I18n',
+]
+
+
 class I18n:
 
     _DEFAULT_LOCALE = 'en'
@@ -28,7 +33,8 @@ class I18n:
             channel_locales = self._channel_to_locales[request.channel]
             for field, locale_field in channel_locales.items():
                 localized_channel_user_data[locale_field[self._DEFAULT_LOCALE]] = \
-                    parsing_response.channel_user_data[field]
+                    parsing_response.channel_user_data[field] \
+                    if field in parsing_response.channel_user_data else 'unknown'
 
         return LocalizedParsingResponse(
             localized_channel_user_data=localized_channel_user_data or parsing_response.channel_user_data,
