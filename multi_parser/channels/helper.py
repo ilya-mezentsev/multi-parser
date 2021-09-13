@@ -1,3 +1,4 @@
+import logging
 from typing import (
     Dict,
     Union,
@@ -50,7 +51,8 @@ class ChannelHelper(IChannelAdapter):
             channel_to_token: ChannelToToken,
     ) -> None:
 
-        if self.vk_channel_type() not in channel_to_token:
+        if not channel_to_token.get(self.vk_channel_type()):
+            logging.info('VK token is not provided so - channel is disabled')
             self._channel_type_to_adapter.pop(self.vk_channel_type())
 
     @staticmethod
